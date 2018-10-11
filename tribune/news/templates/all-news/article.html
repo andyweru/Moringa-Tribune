@@ -18,13 +18,15 @@
         <br><hr>
 
         <div class="row">
-            <p>{{article.post}}</p>
+            {% autoescape on %}
+            {{article.post| safe}}
+           {% endautoescape %}
         </div>
 
         <br><hr>
 
         <div class="row">
-            <p>Posted {{ article.pub_date|timesince }} ago by {{article.editor.first_name }}</p>
+            <p>Posted {{ article.pub_date|timesince }} ago by {{article.editor }}</p>
         </div>
 
     </div>
